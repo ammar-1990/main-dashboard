@@ -5,3 +5,8 @@ export const signinSchema = z.object({
 username:requiredString,
 password:requiredString
 })
+
+export const categorySchema = z.object({
+    title:requiredString,
+    slug:requiredString
+})

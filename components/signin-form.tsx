@@ -13,6 +13,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { useSignin } from "@/hooks/signin.hook"
 import { Loader } from "lucide-react"
+import LoadingButton from "./loading-button"
 
 type Props = {}
 
@@ -52,7 +53,8 @@ const SigninForm
           )}
         />
         {error && <p className="py-2 text-xs text-rose-500 capitalize">{error}</p>}
-        <Button disabled={loading} type="submit">Submit {loading && <Loader className="animate-spin w-4 h-4 ml-3"/>}</Button>
+        
+        <LoadingButton className="w-full" title="Sign in" loading={loading}/>
       </form>
     </Form>
   )
