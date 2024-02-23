@@ -22,7 +22,7 @@ import CategoryForm from "../forms/category-from"
     return (
         <Dialog open={isOpen} onOpenChange={setClose}>
       
-        <DialogContent>
+        <DialogContent className="">
           <DialogHeader>
             <DialogTitle>Categories</DialogTitle>
        

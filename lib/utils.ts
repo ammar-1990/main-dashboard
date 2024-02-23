@@ -7,5 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 
 
 export function replaceSpacesWithHyphens(value:string) {
-  return value.replace(/\s+/g, '-').toLocaleLowerCase();
+  return value.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase();
 }

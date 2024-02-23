@@ -6,14 +6,15 @@ import { Button } from './ui/button'
 
 type Props = {
     modalInputs:ModalInputs,
-    title:string
+    title:string,
+    variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | null | undefined
    
 } & HTMLAttributes<HTMLButtonElement>
 
-const ModalButton = ({modalInputs,title,...rest}: Props) => {
+const ModalButton = ({modalInputs,title,variant,...rest}: Props) => {
     const {setOpen} = useModal()
   return (
-    <Button onClick={()=>setOpen(modalInputs)} {...rest}  >{title}</Button>
+    <Button variant={variant}  onClick={()=>setOpen(modalInputs)} {...rest}  >{title}</Button>
   )
 }
 

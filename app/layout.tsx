@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 import ModalsProvider from "@/providers/modalsProvider";
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>{children}
       <ModalsProvider/>
+      <Toaster richColors position="top-right"/>
       </body>
     </html>
   );
