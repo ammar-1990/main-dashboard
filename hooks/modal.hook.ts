@@ -11,6 +11,7 @@ export type ModalInputs =
         error?: string;
         message?: string;
       }>;
+      backUrl?:string
     };
 
 type Modal = {

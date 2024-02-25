@@ -1,3 +1,4 @@
+import BlogsFeed from "@/components/(blogs)/blogs-feed";
 import CategoryFeed from "@/components/(category)/category-feed";
 import Heading from "@/components/heading";
 import ModalButton from "@/components/modalButton";
@@ -17,10 +18,19 @@ const page = (props: Props) => {
         />
       </div>
 
-      {/* feed */}
+      {/*categories feed */}
       <div className="mt-12">
         <CategoryFeed />
       </div>
+
+      {/* blogs feed */}
+      <div className="mt-24">
+        <h3 className="capitalize font-medium">blogs list</h3>
+        <div className="mt-4">
+          <BlogsFeed />
+        </div>
+      </div>
+      <div></div>
     </div>
   );
 };

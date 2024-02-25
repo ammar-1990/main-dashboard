@@ -14,7 +14,7 @@ type Props = {
 const ModalButton = ({modalInputs,title,variant,...rest}: Props) => {
     const {setOpen} = useModal()
   return (
-    <Button variant={variant}  onClick={()=>setOpen(modalInputs)} {...rest}  >{title}</Button>
+    <Button type='button' variant={variant}  onClick={()=>setOpen(modalInputs)} {...rest}  >{title}</Button>
   )
 }
 

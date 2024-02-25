@@ -38,6 +38,7 @@ const DeleteModal = (props: Props) => {
 
       toast.success(res.message);
       setClose();
+      modalInputs.backUrl && router.push(modalInputs.backUrl)
       router.refresh();
     } catch (error) {
       toast.error("Something went wrong");
