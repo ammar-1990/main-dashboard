@@ -13,6 +13,7 @@ const BlogCard = ({blog}: Props) => {
       <Image src={blog.image} fill alt="blog-image" className="object-contain" />
       </div>
       <h3>{blog.title}</h3>
+      <p className='text-xs truncate text-muted-foreground'>{blog.description}</p>
    </div>
   )
 }
