@@ -74,3 +74,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+.fc-event-title, .fc-event-time {
+  font-size: 10px;
+}
+
+.fc-button {
+  background-color: #4a90e2 !important;
+  color: #fff !important;
+  border-color: #357abd !important;
+}
+.fc-button:hover {
+  background-color: #357abd !important;
+}
