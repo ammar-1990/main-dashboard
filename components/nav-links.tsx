@@ -30,6 +30,12 @@ const NavLinks = (props: Props) => {
       active: pathname === "/dashboard/blogs",
       icon: <BookOpen  className="w-4 h-4"/>,
     },
+    {
+      label: "Services",
+      href: "/dashboard/services",
+      active: pathname === "/dashboard/blogs",
+      icon: <BookOpen  className="w-4 h-4"/>,
+    },
   ];
   return (
     <div className="flex flex-col gap-1 w-full  flex-1">
