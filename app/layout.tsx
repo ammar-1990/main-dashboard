@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <NextTopLoader color="black" />
+      <NextTopLoader color="black" height={2}  />
         {children}
       <ModalsProvider/>
       <Toaster richColors position="top-right"/>
