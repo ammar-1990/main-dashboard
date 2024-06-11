@@ -87,3 +87,16 @@
 .fc-button:hover {
   background-color: #357abd !important;
 }
+
+.scroll::-webkit-scrollbar {
+  width: 7px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 5px;
+
+}
+.scroll::-webkit-scrollbar-corner{
+ display: none;
+}

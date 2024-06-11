@@ -1,18 +1,18 @@
-import { Category } from "@prisma/client";
+import { Category, Service } from "@prisma/client";
 import { create } from "zustand";
 
-export type ModalInputs =
+export type ModalInputs = {
+  type: "delete";
+  id: string;
+  deleteFunction: (id:string) => Promise<{
+    success: boolean;
+    error?: string;
+    message?: string;
+  }>;
+  backUrl?:string
+}
   | { type: "category"; data?: Category }
-  | {
-      type: "delete";
-      id: string;
-      deleteFunction: (id:string) => Promise<{
-        success: boolean;
-        error?: string;
-        message?: string;
-      }>;
-      backUrl?:string
-    };
+  | {type:"service",data?:Service}
 
 type Modal = {
   open: boolean;

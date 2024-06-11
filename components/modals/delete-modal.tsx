@@ -11,7 +11,7 @@ import {
 import { useModal } from "@/hooks/modal.hook";
 
 import React, { useState } from "react";
-import CategoryForm from "../forms/category-from";
+import CategoryForm from "../(category)/category-from";
 import { Button } from "../ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";

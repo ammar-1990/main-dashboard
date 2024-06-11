@@ -10,7 +10,7 @@ import {
 import { useModal } from "@/hooks/modal.hook"
 
   import React from 'react'
-import CategoryForm from "../forms/category-from"
+import CategoryForm from "../(category)/category-from"
   
   type Props = {}
   

@@ -1,5 +1,5 @@
 "use client";
-import { BookOpen, LayoutDashboard, Presentation } from "lucide-react";
+import { AlignHorizontalSpaceAround, BookOpen, ClipboardPlus, LayoutDashboard, Presentation } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { Button } from "./ui/button";
@@ -21,20 +21,26 @@ const NavLinks = (props: Props) => {
     {
       label: "Main page",
       href: "/dashboard/main",
-      active: pathname === "/dashboard/main",
+      active: pathname.split('/')[2]==="main",
       icon: <Presentation  className="w-4 h-4"/>,
     },
     {
       label: "Blogs",
       href: "/dashboard/blogs",
-      active: pathname === "/dashboard/blogs",
+      active:pathname.split('/')[2]==="blogs",
       icon: <BookOpen  className="w-4 h-4"/>,
     },
     {
       label: "Services",
       href: "/dashboard/services",
-      active: pathname === "/dashboard/blogs",
-      icon: <BookOpen  className="w-4 h-4"/>,
+      active: pathname.split('/')[2]==="services",
+      icon: <ClipboardPlus  className="w-4 h-4"/>,
+    },
+    {
+      label: "Service Item",
+      href: "/dashboard/service-items",
+      active:pathname.split('/')[2]==="service-items",
+      icon: <AlignHorizontalSpaceAround className="w-4 h-4"/>,
     },
   ];
   return (
