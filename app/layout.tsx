@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner"
 import "./globals.css";
 import ModalsProvider from "@/providers/modalsProvider";
+import NextTopLoader from 'nextjs-toploader';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}
+      <body className={inter.className}>
+      <NextTopLoader color="black" />
+        {children}
       <ModalsProvider/>
       <Toaster richColors position="top-right"/>
       </body>

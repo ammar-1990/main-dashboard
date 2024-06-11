@@ -19,7 +19,7 @@ const SidebarSheet = ({ children }: Props) => {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger>
+      <SheetTrigger className="md:hidden">
         <Menu />
       </SheetTrigger>
       <SheetContent className="px-0 pb-1">{children}</SheetContent>

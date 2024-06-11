@@ -8,8 +8,8 @@ type Props = {};
 
 const page = (props: Props) => {
   return (
-    <div>
-      <div className="flex md:items-center md:justify-between md:flex-row flex-col gap-3">
+    <div className="full">
+      <div className="flex flex-col md:!flex-row  md:justify-between md:items-center gap-1">
         <Heading title="Blogs" description="Manage your blogs" />
         <ModalButton
           className=""
@@ -24,7 +24,7 @@ const page = (props: Props) => {
       </div>
 
       {/* blogs feed */}
-      <div className="mt-24">
+      <div className="mt-40">
         <h3 className="capitalize font-medium">blogs list</h3>
         <div className="mt-4">
           <BlogsFeed />
