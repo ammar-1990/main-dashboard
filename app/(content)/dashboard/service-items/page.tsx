@@ -12,40 +12,59 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 
 import { deleteServiceItem } from "@/actions/service-item-actions";
 
 type Props = {};
-export const revalidate = 0
+export const revalidate = 0;
 const page = async (props: Props) => {
-  const serviceItemsRes =  prisma.serviceItem.findMany();
-  const servicesRes =  prisma.service.findMany({
-    select:{
-      id:true,label:true
-    }
-  })
+  const services = await prisma.service.findMany({
+    select: {
+      id: true,
+      label: true,
+      serviceItems: true,
+    },
+  });
 
-const [serviceItems,services] = await  Promise.all([serviceItemsRes,servicesRes])
+  const servicesNames = services.map((service) => ({
+    id: service.id,
+    label: service.label,
+  }));
 
   return (
     <div>
       <div className="flex items-center justify-between">
         <Heading title="Service Items" description="Create new service item" />
         <ModalButton
-          modalInputs={{ type: "service-item", data: undefined,services }}
+          modalInputs={{ type: "service-item", data: undefined, services }}
           title="Create Service Item"
         />
       </div>
 
       {/* service items feed */}
       <div className="mt-12">
-        {!serviceItems.length ? (
+        {!services.length ? (
           <NoResult />
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {serviceItems.map((serviceItem) => (
-              <ServiceItemCard key={serviceItem.id} serviceItem={serviceItem} services={services} />
+          <div className="mt-12">
+            {services.map((service) => (
+              <div key={service.id} className="flex flex-col gap-3 mb-12">
+                <h3 className="text-lg font-semibold">{service.label}</h3>
+                {!service.serviceItems.length ? (
+                  <NoResult />
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-3">
+                    {service.serviceItems.map((serviceItem) => (
+                      <ServiceItemCard
+                        key={serviceItem.id}
+                        serviceItem={serviceItem}
+                        services={servicesNames}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         )}
@@ -56,7 +75,13 @@ const [serviceItems,services] = await  Promise.all([serviceItemsRes,servicesRes]
 
 export default page;
 
-const ServiceItemCard = ({ serviceItem,services }: { serviceItem: ServiceItem ,services:{label:string,id:string}[]}) => {
+const ServiceItemCard = ({
+  serviceItem,
+  services,
+}: {
+  serviceItem: ServiceItem;
+  services: { label: string; id: string }[];
+}) => {
   return (
     <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow flex flex-col">
       <div className="w-full aspect-video relative overflow-hidden">
@@ -79,11 +104,13 @@ const ServiceItemCard = ({ serviceItem,services }: { serviceItem: ServiceItem ,s
         <p className="text-xs text-muted-foreground">
           {serviceItem.description}
         </p>
-        <p className="text-xs font-semibold mb-8">${serviceItem.initialPrice}</p>
+        <p className="text-xs font-semibold mb-8">
+          ${serviceItem.initialPrice}
+        </p>
         <div className="mt-auto flex items-center gap-3">
           <ModalButton
             className="flex-1"
-            modalInputs={{ type: "service-item", data: serviceItem,services }}
+            modalInputs={{ type: "service-item", data: serviceItem, services }}
             title="Edit"
           />
           <ModalButton
