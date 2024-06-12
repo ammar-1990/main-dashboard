@@ -96,7 +96,7 @@ const ServiceItemCard = ({
           src={serviceItem.image}
           alt="image"
           fill
-          className="object-cover blur-sm"
+          className="object-cover blur-md"
         />
       </div>
       <div className="p-4 flex flex-col flex-1 ">

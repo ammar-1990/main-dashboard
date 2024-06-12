@@ -12,7 +12,7 @@ const BlogCard = ({blog}: Props) => {
     <div className="w-full aspect-video relative  ">
       <div className="inset-0 absolute bg-black/60 z-10 overflow-hidden"/>
       <Image src={blog.image} alt="image" fill className="object-contain z-10"/>
-      <Image src={blog.image} alt="image" fill className="object-cover blur-sm"/>
+      <Image src={blog.image} alt="image" fill className="object-cover blur-md"/>
     </div>
     <div className='p-3'> 
         <h3>{blog.title}</h3>
