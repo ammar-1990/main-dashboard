@@ -34,7 +34,7 @@ const page = async (props: Props) => {
 
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex md:items-center justify-between md:!flex-row flex-col gap-3">
         <Heading title="Service Items" description="Create new service item" />
         <ModalButton
           modalInputs={{ type: "service-item", data: undefined, services }}
@@ -54,7 +54,7 @@ const page = async (props: Props) => {
                 {!service.serviceItems.length ? (
                   <NoResult />
                 ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  gap-3">
+                  <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-3">
                     {service.serviceItems.map((serviceItem) => (
                       <ServiceItemCard
                         key={serviceItem.id}

@@ -13,7 +13,7 @@ const page = async (props: Props) => {
   const services = await prisma.service.findMany();
   return (
     <div>
-      <div className="flex items-center justify-between">
+      <div className="flex md:items-center justify-between md:!flex-row flex-col gap-3">
         <Heading title="Services" description="Create new service" />
         <ModalButton
           modalInputs={{ type: "service", data: undefined }}
@@ -26,7 +26,7 @@ const page = async (props: Props) => {
       {!services.length ? (
         <NoResult />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-3">
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
