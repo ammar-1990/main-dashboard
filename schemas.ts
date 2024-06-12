@@ -39,5 +39,6 @@ export const serviceItemSchema = z.object({
   seoDescription:requiredString,
   description: optionalString,
   image: requiredString,
-  initialPrice: z.coerce.number(),
+  initialPrice: z.coerce.number().min(1,"required"),
+  serviceId:requiredString
 });

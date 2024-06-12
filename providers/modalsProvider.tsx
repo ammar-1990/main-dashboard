@@ -2,6 +2,7 @@
 
 import CategoryModal from '@/components/modals/category-modal'
 import DeleteModal from '@/components/modals/delete-modal'
+import ServiceItemModal from '@/components/modals/service-item-modal'
 import ServiceModal from '@/components/modals/service-modal'
 import React, { useEffect, useState } from 'react'
 
@@ -22,6 +23,7 @@ const ModalsProvider = (props: Props) => {
     <CategoryModal/>
     <DeleteModal/>
     <ServiceModal/>
+    <ServiceItemModal/>
     
     </>
   )
