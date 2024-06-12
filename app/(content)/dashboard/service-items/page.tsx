@@ -47,10 +47,10 @@ const page = async (props: Props) => {
         {!services.length ? (
           <NoResult />
         ) : (
-          <div className="mt-12">
+          <div className="mt-16 ">
             {services.map((service) => (
-              <div key={service.id} className="flex flex-col gap-3 mb-12">
-                <h3 className="text-lg font-semibold">{service.label}</h3>
+              <div key={service.id} className="flex flex-col gap-3 mb-12 pt-12 border-t-2">
+                <h3 className="text-lg font-semibold uppercase">{service.label}{" - services"}</h3>
                 {!service.serviceItems.length ? (
                   <NoResult />
                 ) : (
