@@ -8,7 +8,7 @@ import Image from "next/image";
 import { deleteService } from "@/actions/service-actions";
 
 type Props = {};
-
+export const revalidate = 0
 const page = async (props: Props) => {
   const services = await prisma.service.findMany();
   return (

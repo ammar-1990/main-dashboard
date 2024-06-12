@@ -17,7 +17,7 @@ import {
 import { deleteServiceItem } from "@/actions/service-item-actions";
 
 type Props = {};
-
+export const revalidate = 0
 const page = async (props: Props) => {
   const serviceItemsRes =  prisma.serviceItem.findMany();
   const servicesRes =  prisma.service.findMany({
