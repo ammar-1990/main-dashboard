@@ -45,7 +45,7 @@ export default page;
 
 
 const ServiceCard = ({ service }: { service: Service }) => {
-  return <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow flex flex-col bg-white">
+  return <article className="border rounded-lg overflow-hidden  shadow-md transition-shadow flex flex-col bg-white">
     <div className="w-full aspect-video relative overflow-hidden">
       <div className="inset-0 absolute bg-black/60 z-10"/>
       <Image src={service.image} alt="image" fill className="object-contain z-10"/>

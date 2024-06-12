@@ -10,7 +10,7 @@ const BlogsFeed = async (props: Props) => {
   const blogs = await prisma.blog.findMany({ orderBy: { createdAt: "desc" } });
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-stretch">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 items-stretch shadow-md">
       <Link
         href={"/dashboard/blogs/new"}
         className="flex flex-col relative items-center justify-center border rounded-md cursor-pointer overflow-hidden w-full group min-h-[300px] bg-white"
