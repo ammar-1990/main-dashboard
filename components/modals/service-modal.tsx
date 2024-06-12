@@ -24,7 +24,7 @@ import ServiceForm from "../(service)/service-from"
     return (
         <Dialog  open={isOpen} onOpenChange={setClose}>
       
-        <DialogContent className="max-w-[600px] max-h-[80vh] overflow-y-scroll scroll ">
+        <DialogContent className="max-w-[700px] max-h-[95vh] overflow-y-scroll scroll ">
           <DialogHeader>
             <DialogTitle>Service</DialogTitle>
             <DialogDescription>{service ? `Update ${service.label}`:"Create Service"}</DialogDescription>

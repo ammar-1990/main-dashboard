@@ -13,7 +13,8 @@ export const createBlog = async (
 
     const existingSlug = await prisma.blog.findUnique({
         where:{
-            slug:validData.data.slug
+            slug:validData.data.slug,
+           
         }
     })
 

@@ -38,6 +38,45 @@ const ServiceForm = (props: Props) => {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="slug"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Slug*</FormLabel>
+              <FormControl>
+                <Input placeholder="Slug" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="seoTitle"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>SEO Title*</FormLabel>
+              <FormControl>
+                <Input placeholder="SEO Title" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="seoDescription"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>SEO Description*</FormLabel>
+              <FormControl>
+                <Textarea className='resize-none' placeholder="SEO Description" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
          <FormField
           control={form.control}
           name="description"

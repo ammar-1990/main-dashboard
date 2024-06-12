@@ -4,7 +4,7 @@ import { nextOptions } from "@/app/api/auth/[...nextauth]/nextOptions";
 import { CustomError } from "@/custom-error";
 import { serviceSchema } from "@/schemas";
 import { getServerSession } from "next-auth";
-import { NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
 import { z } from "zod";
 
 
@@ -24,7 +24,15 @@ export const createService = async ({
     const validData = serviceSchema.safeParse(values);
     if (!validData.success) throw new CustomError("Invalid Inputs");
 
-    await prisma?.service.create({
+    const existingSlug = await prisma.service.findUnique({
+      where:{
+          slug:validData.data.slug
+      }
+  })
+
+  if(existingSlug) return {success:false,error:'Slug already exist'}
+
+    await prisma.service.create({
       data: {
         ...validData.data,
       },
@@ -59,8 +67,17 @@ export const updateService = async ({
   
       const validData = serviceSchema.safeParse(values);
       if (!validData.success) throw new CustomError("Invalid Inputs");
+
+      const existingSlug = await prisma.service.findUnique({
+        where:{
+            slug:validData.data.slug,
+            NOT:{id}
+        }
+    })
   
-      await prisma?.service.update({
+    if(existingSlug) return {success:false,error:'Slug already exist'}
+  
+      await prisma.service.update({
         where:{
             id
         },
@@ -82,12 +99,7 @@ export const updateService = async ({
   };
 
 
-  export const deleteService = async ({
-  
-    id
-  }: {
- id:string
-  }) => {
+  export const deleteService = async (id:string) => {
     try {
 
         if(!id) throw new CustomError("Id is required")
@@ -98,7 +110,7 @@ export const updateService = async ({
    
 
   
-      await prisma?.service.delete({
+      await prisma.service.delete({
         where:{
             id
         },

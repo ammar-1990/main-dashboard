@@ -8,6 +8,8 @@ import { useModal } from "./modal.hook";
 import { toast } from "sonner";
 import { createService, updateService } from "@/actions/service-actions";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { replaceSpacesWithHyphens } from "@/lib/utils";
 
 export const useService = () => {
   const { setClose, modalInputs } = useModal();
@@ -19,10 +21,22 @@ export const useService = () => {
     resolver: zodResolver(serviceSchema),
     defaultValues: {
       label: service?.label || "",
+      slug:service?.slug || "",
+      seoTitle:service?.seoTitle || "",
+      seoDescription:service?.seoDescription || "",
       description: service?.description || "",
       image: service?.image || "",
     },
   });
+
+  const slug = form.watch('slug')
+  useEffect(()=>{
+
+    const value = replaceSpacesWithHyphens(slug)
+
+    form.setValue('slug',value)
+
+  },[slug,form])
 
   async function onSubmit(values: z.infer<typeof serviceSchema>) {
     try {
