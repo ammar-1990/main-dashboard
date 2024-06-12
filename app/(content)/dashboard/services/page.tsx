@@ -45,16 +45,16 @@ export default page;
 
 
 const ServiceCard = ({ service }: { service: Service }) => {
-  return <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow">
+  return <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow flex flex-col">
     <div className="w-full aspect-video relative overflow-hidden">
       <div className="inset-0 absolute bg-black/60 z-10"/>
       <Image src={service.image} alt="image" fill className="object-contain z-10"/>
       <Image src={service.image} alt="image" fill className="object-cover blur-md"/>
     </div>
-    <div className="p-4">
+    <div className="p-4 flex-1 flex flex-col">
       <h3 className="font-semibold capitalize">{service.label}</h3>
-      <p className="text-xs text-muted-foreground">{service.description}</p>
-      <div className="mt-8 flex items-center gap-3">
+      <p className="mb-8 text-xs text-muted-foreground">{service.description}</p>
+      <div className="mt-auto flex items-center gap-3">
         <ModalButton className="flex-1"  modalInputs={{type:'service',data:service}} title="Edit"/>
         <ModalButton className="flex-1" variant={'destructive'}  modalInputs={{type:'delete',deleteFunction:deleteService,id:service.id}} title="Delete" />
       </div>

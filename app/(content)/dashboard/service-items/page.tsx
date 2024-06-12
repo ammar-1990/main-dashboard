@@ -58,7 +58,7 @@ export default page;
 
 const ServiceItemCard = ({ serviceItem,services }: { serviceItem: ServiceItem ,services:{label:string,id:string}[]}) => {
   return (
-    <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow">
+    <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow flex flex-col">
       <div className="w-full aspect-video relative overflow-hidden">
         <div className="inset-0 absolute bg-black/60 z-10" />
         <Image
@@ -74,13 +74,13 @@ const ServiceItemCard = ({ serviceItem,services }: { serviceItem: ServiceItem ,s
           className="object-cover blur-md"
         />
       </div>
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-1 ">
         <h3 className="font-semibold capitalize">{serviceItem.label}</h3>
         <p className="text-xs text-muted-foreground">
           {serviceItem.description}
         </p>
-        <p className="text-xs font-semibold">${serviceItem.initialPrice}</p>
-        <div className="mt-8 flex items-center gap-3">
+        <p className="text-xs font-semibold mb-8">${serviceItem.initialPrice}</p>
+        <div className="mt-auto flex items-center gap-3">
           <ModalButton
             className="flex-1"
             modalInputs={{ type: "service-item", data: serviceItem,services }}
