@@ -25,7 +25,7 @@ const EditorBLocknote = ({ onChange, initialContent, editable }: Props) => {
       onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
     },
   });
-  return <BlockNoteView onBlur={()=>setF(false)} onFocus={()=>setF(true)} className={cn("border rounded-lg p-2  ",f && 'ring-offset-2 ring-ring ring-2 outline-none')} editor={editor} />;
+  return <BlockNoteView onBlur={()=>setF(false)} onFocus={()=>setF(true)} className={cn("border rounded-lg p-2  ",f && 'ring-offset-2 ring-ring ring-1 transition outline-none')} editor={editor} />;
 };
 
 export default EditorBLocknote;
