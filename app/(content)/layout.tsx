@@ -16,7 +16,7 @@ const layout = ({ children }: Props) => {
           </SidebarSheet>
       </div>
  
-      <main className="md:p-14 p-6 md:pl-60">{children}</main>
+      <main className="md:p-14 p-6 md:pl-60 bg-slate-100 min-h-screen">{children}</main>
     </div>
   );
 };

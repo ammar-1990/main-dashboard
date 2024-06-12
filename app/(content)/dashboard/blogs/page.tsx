@@ -19,14 +19,18 @@ const page = (props: Props) => {
       </div>
 
       {/*categories feed */}
+
       <div className="mt-12">
-        <CategoryFeed />
+        <h3 className="font-semibold mb-1">Category&apos;s Table</h3>
+        <div className=" border bg-white rounded-lg overflow-hidden">
+          <CategoryFeed />
+        </div>
       </div>
 
       {/* blogs feed */}
       <div className="mt-40">
-        <h3 className="capitalize font-medium">blogs list</h3>
-        <div className="mt-4">
+        <h3 className="capitalize font-semibold">blogs list</h3>
+        <div className="mt-1">
           <BlogsFeed />
         </div>
       </div>

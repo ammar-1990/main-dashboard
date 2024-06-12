@@ -83,7 +83,7 @@ const ServiceItemCard = ({
   services: { label: string; id: string }[];
 }) => {
   return (
-    <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow flex flex-col">
+    <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow flex flex-col bg-white">
       <div className="w-full aspect-video relative overflow-hidden">
         <div className="inset-0 absolute bg-black/60 z-10" />
         <Image
@@ -96,7 +96,7 @@ const ServiceItemCard = ({
           src={serviceItem.image}
           alt="image"
           fill
-          className="object-cover blur-md"
+          className="object-cover blur-sm"
         />
       </div>
       <div className="p-4 flex flex-col flex-1 ">

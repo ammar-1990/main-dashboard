@@ -45,11 +45,11 @@ export default page;
 
 
 const ServiceCard = ({ service }: { service: Service }) => {
-  return <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow flex flex-col">
+  return <article className="border rounded-lg overflow-hidden  hover:shadow-md transition-shadow flex flex-col bg-white">
     <div className="w-full aspect-video relative overflow-hidden">
       <div className="inset-0 absolute bg-black/60 z-10"/>
       <Image src={service.image} alt="image" fill className="object-contain z-10"/>
-      <Image src={service.image} alt="image" fill className="object-cover blur-md"/>
+      <Image src={service.image} alt="image" fill className="object-cover blur-sm"/>
     </div>
     <div className="p-4 flex-1 flex flex-col">
       <h3 className="font-semibold capitalize">{service.label}</h3>

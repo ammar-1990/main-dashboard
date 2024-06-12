@@ -8,14 +8,18 @@ type Props = {
 
 const BlogCard = ({blog}: Props) => {
   return (
-    <div className="border rounded-lg p-1 h-full">
-    <div className="w-full aspect-video relative overflow-hidden rounded-lg">
-      <div className="inset-0 absolute bg-black/60 z-10"/>
+    <div className="border rounded-lg overflow-hidden  h-full bg-white">
+    <div className="w-full aspect-video relative  ">
+      <div className="inset-0 absolute bg-black/60 z-10 overflow-hidden"/>
       <Image src={blog.image} alt="image" fill className="object-contain z-10"/>
-      <Image src={blog.image} alt="image" fill className="object-cover blur-md"/>
+      <Image src={blog.image} alt="image" fill className="object-cover blur-sm"/>
     </div>
-      <h3>{blog.title}</h3>
-      <p className='text-xs truncate text-muted-foreground'>{blog.description}</p>
+    <div className='p-3'> 
+        <h3>{blog.title}</h3>
+    <p className='text-xs truncate text-muted-foreground'>{blog.description}</p>
+
+    </div>
+   
    </div>
   )
 }
