@@ -35,6 +35,8 @@ const ServiceItemForm = (props: Props) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {/* label and service */}
+        <div className="form_devider">
         <FormField
           control={form.control}
           name="label"
@@ -73,7 +75,10 @@ const ServiceItemForm = (props: Props) => {
             </FormItem>
           )}
         />
-        <FormField
+        </div>
+      {/* slug and initial price */}
+      <div className="form_devider">
+      <FormField
           control={form.control}
           name="slug"
           render={({ field }) => (
@@ -99,7 +104,10 @@ const ServiceItemForm = (props: Props) => {
             </FormItem>
           )}
         />
-        <FormField
+      </div>
+       {/* seo title and seo disccription */}
+       <div className="form_devider">
+       <FormField
           control={form.control}
           name="seoTitle"
           render={({ field }) => (
@@ -129,6 +137,8 @@ const ServiceItemForm = (props: Props) => {
             </FormItem>
           )}
         />
+       </div>
+    
         <FormField
           control={form.control}
           name="description"

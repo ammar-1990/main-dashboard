@@ -25,6 +25,8 @@ const ServiceForm = (props: Props) => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {/* label and slug */}
+        <div className="form_devider">
         <FormField
           control={form.control}
           name="label"
@@ -51,7 +53,11 @@ const ServiceForm = (props: Props) => {
             </FormItem>
           )}
         />
-        <FormField
+        </div>
+
+        {/* seo title and seo description */}
+  <div className="form_devider">
+  <FormField
           control={form.control}
           name="seoTitle"
           render={({ field }) => (
@@ -77,6 +83,8 @@ const ServiceForm = (props: Props) => {
             </FormItem>
           )}
         />
+  </div>
+       
          <FormField
           control={form.control}
           name="description"
