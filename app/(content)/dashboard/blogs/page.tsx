@@ -6,6 +6,8 @@ import React from "react";
 
 type Props = {};
 
+export const revalidate = 0
+
 const page = (props: Props) => {
   return (
     <div className="full">
