@@ -9,8 +9,8 @@ type Props = {
 const BlogCard = ({blog}: Props) => {
   return (
     <div className="border rounded-lg overflow-hidden shadow-md  h-full bg-white">
-    <div className="w-full aspect-video relative  ">
-      <div className="inset-0 absolute bg-black/60 z-10 overflow-hidden"/>
+    <div className="w-full aspect-video relative  overflow-hidden">
+      <div className="inset-0 absolute bg-black/60 z-10 "/>
       <Image src={blog.image} alt="image" fill className="object-contain z-10"/>
       <Image src={blog.image} alt="image" fill className="object-cover blur-md"/>
     </div>
