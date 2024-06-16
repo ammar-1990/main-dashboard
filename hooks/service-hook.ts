@@ -26,6 +26,10 @@ export const useService = () => {
       seoDescription:service?.seoDescription || "",
       description: service?.description || "",
       image: service?.image || "",
+      content:service?.content || "",
+      icon:service?.icon || undefined,
+      iconColor:service?.iconColor || undefined
+
     },
   });
 

@@ -59,7 +59,10 @@ model Blog {
 model Service {
   id             String        @id @default(uuid())
   label          String
-  description    String?
+  description    String
+  content        String
+  icon           Icons
+  iconColor      Colors
   image          String
   seoTitle       String
   seoDescription String
@@ -84,4 +87,17 @@ model ServiceItem {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum Icons {
+  SOFTWARE
+  DESIGN
+  AI
+  MARKETING
+}
+
+enum Colors {
+  LIGHT_PINK
+  LIGHT_YELLOW
+  LIGHT_BLUE
 }

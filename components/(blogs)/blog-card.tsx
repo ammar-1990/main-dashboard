@@ -26,3 +26,4 @@ const BlogCard = ({blog}: Props) => {
 }
 
 export default BlogCard
+
