@@ -30,7 +30,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "../ui/textarea";
 import UploadComponent from "../upload-component";
 import { useModal } from "@/hooks/modal.hook";
-import { Loader2 } from "lucide-react";
+import { ChevronDown, Loader2 } from "lucide-react";
 import dynamic from "next/dynamic";
 import { icons, iconsColors } from "@/schemas";
 import { colorsMapping, iconsMapping } from "@/mapping";
@@ -125,8 +125,9 @@ const ServiceForm = (props: Props) => {
                 <FormLabel>Icon*</FormLabel>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="outline">
+                    <Button variant="outline" className="relative">
                       {iconsMapping[field.value] || "Choose Icon"}
+                      <ChevronDown className="absolute right-3 top-1/2 -translate-y-[50%]"/>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="min-w-[300px]">
@@ -158,7 +159,7 @@ const ServiceForm = (props: Props) => {
                 <FormLabel>Icon Background Color*</FormLabel>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="outline">
+                    <Button variant="outline" className="relative">
                       {colorsMapping[form.watch("iconColor")] ? (
                         <div
                           className={cn(
@@ -169,6 +170,7 @@ const ServiceForm = (props: Props) => {
                       ) : (
                         "Choose Color"
                       )}
+                      <ChevronDown className="absolute right-3 top-1/2 -translate-y-[50%]"/>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="min-w-[300px]">
