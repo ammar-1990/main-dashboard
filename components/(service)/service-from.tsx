@@ -11,6 +11,15 @@ import {
 } from "@/components/ui/form";
 
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -111,25 +120,31 @@ const ServiceForm = (props: Props) => {
             control={form.control}
             name="icon"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex flex-col gap-1 w-full">
                 <FormLabel>Icon*</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="h-10">
-                      <SelectValue className="" placeholder="Select Icon" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {icons.map((icon) => (
-                      <SelectItem key={icon} value={icon}>
-                        {iconsMapping[icon]}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline">
+                      {iconsMapping[field.value] || "Choose Icon"}
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="min-w-[300px]">
+                    <div className="grid grid-cols-3 gap-1 w-full">
+                      {icons.map((icon) => (
+                        <DropdownMenuItem
+                          className={cn(
+                            "w-full flex items-center justify-center cursor-pointer",
+                            form.watch("icon") === icon && "bg-muted"
+                          )}
+                          key={icon}
+                          onClick={() => form.setValue("icon", icon)}
+                        >
+                          {iconsMapping[icon]}
+                        </DropdownMenuItem>
+                      ))}
+                    </div>
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <FormMessage />
               </FormItem>
             )}
@@ -138,33 +153,45 @@ const ServiceForm = (props: Props) => {
             control={form.control}
             name="iconColor"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex flex-col gap-1">
                 <FormLabel>Icon Background Color*</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger className="h-10">
-                      <SelectValue
-                        className=""
-                        placeholder="Select Icon Background Color"
-                      />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {iconsColors.map((color) => (
-                      <SelectItem key={color} value={color}>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline">
+                      {colorsMapping[form.watch("iconColor")] ? (
                         <div
                           className={cn(
-                            "w-8 h-8 border rounded-full ",
-                            colorsMapping[color]
+                            `w-5 h-5 flex items-center justify-center rounded-full`,
+                            colorsMapping[form.watch("iconColor")]
                           )}
                         />
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                      ) : (
+                        "Choose Color"
+                      )}
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="min-w-[300px]">
+                    <div className="grid grid-cols-3 gap-1 w-full">
+                      {iconsColors.map((color) => (
+                        <DropdownMenuItem
+                          className={cn(
+                            "w-full flex items-center justify-center cursor-pointer",
+                            form.watch("iconColor") === color && "bg-muted"
+                          )}
+                          key={color}
+                          onClick={() => form.setValue("iconColor", color)}
+                        >
+                          <div
+                            className={cn(
+                              `w-5 h-5 flex items-center justify-center rounded-full`,
+                              colorsMapping[color]
+                            )}
+                          />
+                        </DropdownMenuItem>
+                      ))}
+                    </div>
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <FormMessage />
               </FormItem>
             )}
@@ -178,7 +205,6 @@ const ServiceForm = (props: Props) => {
             <FormItem>
               <FormLabel className="flex items-center gap-1">
                 Description{" "}
-            
               </FormLabel>
               <FormControl>
                 <Textarea
