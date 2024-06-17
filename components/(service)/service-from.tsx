@@ -38,9 +38,10 @@ import { cn } from "@/lib/utils";
 const Editor = dynamic(() => import("../../components/editor-blocknote"), {
   ssr: false,
 });
-//bg-blue-500/40
-//bg-pink-500/40
-//bg-yellow-500/40
+//bg-[#D4F0FF]
+//bg-[#FFDED4]
+//bg-[#FFEED4]
+
 
 type Props = {};
 
@@ -161,7 +162,7 @@ const ServiceForm = (props: Props) => {
                       {colorsMapping[form.watch("iconColor")] ? (
                         <div
                           className={cn(
-                            `w-5 h-5 flex items-center justify-center rounded-full`,
+                            `w-8 h-8 flex items-center justify-center rounded-full`,
                             colorsMapping[form.watch("iconColor")]
                           )}
                         />
@@ -183,7 +184,7 @@ const ServiceForm = (props: Props) => {
                         >
                           <div
                             className={cn(
-                              `w-5 h-5 flex items-center justify-center rounded-full`,
+                              `w-8 h-8 flex items-center justify-center rounded-full`,
                               colorsMapping[color]
                             )}
                           />

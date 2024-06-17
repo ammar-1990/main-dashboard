@@ -1,6 +1,6 @@
-//bg-blue-500/40
-//bg-pink-500/40
-//bg-yellow-500/40
+//bg-[#D4F0FF]
+//bg-[#FFDED4]
+//bg-[#FFEED4]
 
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 
@@ -9,9 +9,9 @@ import { ColorsType, IconsType } from "./schemas";
 import { Bot, Globe, Rocket } from "lucide-react";
 
 export const colorsMapping: { [key in ColorsType]: string } = {
-  LIGHT_BLUE: "bg-blue-500/40",
-  LIGHT_PINK: "bg-pink-500/40",
-  LIGHT_YELLOW: "bg-yellow-500/40",
+  LIGHT_BLUE: "bg-[#D4F0FF]",
+  LIGHT_PINK: "bg-[#FFDED4]",
+  LIGHT_YELLOW: "bg-[#FFEED4]",
 } as const;
 
 export const iconsMapping: { [key in IconsType]: ReactNode } = {
