@@ -89,6 +89,25 @@ model ServiceItem {
   updatedAt DateTime @updatedAt
 }
 
+model Offer {
+  id             String @id @default(uuid())
+  label          String
+  description    String
+  content        String
+  previousPrice  Float
+  currentPrice   Float
+  image          String
+  seoTitle       String
+  seoDescription String
+  slug           String @unique
+
+  startDate DateTime
+  endDate   DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 enum Icons {
   SOFTWARE
   DESIGN

@@ -52,3 +52,19 @@ export const serviceItemSchema = z.object({
   initialPrice: z.coerce.number().min(1,"required"),
   serviceId:requiredString
 });
+
+
+export const offerSchema = z.object({
+  label: requiredString,
+  slug:requiredString,
+  seoTitle:requiredString,
+  seoDescription:requiredString,
+  description: requiredString,
+  content:requiredString,
+
+  previousPrice:z.coerce.number().min(1,"required"),
+  currentPrice:z.coerce.number().min(1,"requred"),
+  startDate:z.date(),
+  endDate:z.date(),
+  image: requiredString,
+}).refine(data=>data.startDate < data.endDate,{message:"Start Date should be less end date",path:['startDate']});
