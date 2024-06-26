@@ -8,6 +8,7 @@ import React from "react";
 import prisma from '@/lib/prisma'
 
 type Props = {};
+export const revalidate = 0
 
 const page = async (props: Props) => {
   const subscriptions = await prisma.subscription.findMany({
