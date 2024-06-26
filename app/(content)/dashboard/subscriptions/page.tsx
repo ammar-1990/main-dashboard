@@ -5,11 +5,12 @@ import NoResult from "@/components/no-result";
 import { Subscription } from "@prisma/client";
 import { Check } from "lucide-react";
 import React from "react";
+import prisma from '@/lib/prisma'
 
 type Props = {};
 
 const page = async (props: Props) => {
-  const subscriptions = await prisma?.subscription.findMany({
+  const subscriptions = await prisma.subscription.findMany({
     orderBy:{
       createdAt:'asc'
     }
