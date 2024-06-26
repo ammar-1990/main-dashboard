@@ -2,6 +2,7 @@
 
 import { blogSchema, categorySchema } from "@/schemas";
 import prisma from "@/lib/prisma";
+import { CustomError } from "@/custom-error";
 
 export const createBlog = async (
   data: any
@@ -27,9 +28,10 @@ export const createBlog = async (
 
     return { success: true, message: "Blog successfully created" };
   } catch (error) {
-    console.log(error);
-
-    return { success: false, error: "Internal server error" };
+    console.error(error)
+        let message = "internal server error"
+        if(error instanceof CustomError) message = error.message
+        return {success:false,error:message}
   }
 };
 
@@ -69,9 +71,10 @@ export const editBlog = async (
 
     return { success: true, message: "Blog successfully updated" };
   } catch (error) {
-    console.log(error);
-
-    return { success: false, error: "Internal server error" };
+    console.error(error)
+        let message = "internal server error"
+        if(error instanceof CustomError) message = error.message
+        return {success:false,error:message}
   }
 };
 
@@ -92,8 +95,9 @@ export const deleteBlog = async (
   
       return { success: true, message: "Blog successfully deleted" };
     } catch (error) {
-      console.log(error);
-  
-      return { success: false, error: "Internal server error" };
+      console.error(error)
+      let message = "internal server error"
+      if(error instanceof CustomError) message = error.message
+      return {success:false,error:message}
     }
   };

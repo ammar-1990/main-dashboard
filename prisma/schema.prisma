@@ -108,6 +108,20 @@ model Offer {
   updatedAt DateTime @updatedAt
 }
 
+model Subscription {
+  id String @id @default(uuid())
+
+  type         SubscriptionsPlans @default(BASIC)
+  bulletPoints Json[]
+
+  price Float
+  label String?
+  description String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 enum Icons {
   SOFTWARE
   DESIGN
@@ -119,4 +133,11 @@ enum Colors {
   LIGHT_PINK
   LIGHT_YELLOW
   LIGHT_BLUE
+}
+
+enum SubscriptionsPlans {
+  BASIC
+  STANDARD
+  PRO
+  UNLIMITED
 }

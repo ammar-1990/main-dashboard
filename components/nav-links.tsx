@@ -1,5 +1,5 @@
 "use client";
-import { AlignHorizontalSpaceAround, BookOpen, ClipboardPlus, LayoutDashboard, PercentCircle, Presentation } from "lucide-react";
+import { AlignHorizontalSpaceAround, ArrowUpFromLine, BookOpen, ClipboardPlus, LayoutDashboard, PercentCircle, Presentation } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React from "react";
 import { Button } from "./ui/button";
@@ -47,6 +47,12 @@ const NavLinks = (props: Props) => {
       href: "/dashboard/offers",
       active:pathname.split('/')[2]==="offers",
       icon: <PercentCircle className="w-4 h-4"/>,
+    },
+    {
+      label: "Subscriptions",
+      href: "/dashboard/subscriptions",
+      active:pathname.split('/')[2]==="subscriptions",
+      icon: <ArrowUpFromLine className="w-4 h-4"/>,
     },
   ];
   return (

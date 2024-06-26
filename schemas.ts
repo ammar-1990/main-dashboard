@@ -1,4 +1,4 @@
-import { Colors, Icons } from "@prisma/client";
+import { Colors, Icons, SubscriptionsPlans } from "@prisma/client";
 import { z } from "zod";
 
 const requiredString = z.string().min(1, "Required");
@@ -68,3 +68,14 @@ export const offerSchema = z.object({
   endDate:z.date(),
   image: requiredString,
 }).refine(data=>data.startDate < data.endDate,{message:"Start Date should be less end date",path:['startDate']});
+
+
+export const subscriptionPlans:(keyof typeof SubscriptionsPlans)[] = ['BASIC','PRO','STANDARD','UNLIMITED']
+
+export const subscriptionSchema = z.object({
+  type:z.nativeEnum(SubscriptionsPlans),
+  label:optionalString,
+  description:optionalString,
+  bulletPoints:z.array(z.object({id:requiredString,point:requiredString})).min(1,"at least one"),
+  price:z.coerce.number()
+})

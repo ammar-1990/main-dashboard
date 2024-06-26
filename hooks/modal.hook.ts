@@ -1,4 +1,4 @@
-import { Category, Offer, Service, ServiceItem } from "@prisma/client";
+import { Category, Offer, Service, ServiceItem, Subscription } from "@prisma/client";
 import { create } from "zustand";
 
 export type ModalInputs = {
@@ -15,6 +15,7 @@ export type ModalInputs = {
   | {type:"service",data?:Service}
   |{type:"service-item",data?:ServiceItem,services?:{id:string,label:string}[]}
   |{type:"offer",data?:Offer}
+  |{type:"subscription",data?:Subscription}
 
 type Modal = {
   open: boolean;
