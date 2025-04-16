@@ -101,7 +101,7 @@ const ServiceItemCard = ({
       </div>
       <div className="p-4 flex flex-col flex-1 ">
         <h3 className="font-semibold capitalize">{serviceItem.label}</h3>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs text-muted-foreground whitespace-pre-wrap">
           {serviceItem.description}
         </p>
         <p className="text-xs font-semibold mb-8">
