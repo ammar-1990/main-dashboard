@@ -146,9 +146,9 @@ model Portfolio {
   description String
   escerpt     String
   mainImage   String
-
+  slug         String @unique
   seoTitle       String
-  setDescription String
+  seoDescription String
 
   problem  String
   solution String

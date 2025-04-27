@@ -79,3 +79,31 @@ export const subscriptionSchema = z.object({
   bulletPoints:z.array(z.object({id:requiredString,point:requiredString})).min(1,"at least one"),
   price:z.coerce.number()
 })
+
+
+export const portfolioSchema = z.object({
+  title:z.string().min(1,'required'),
+  description:z.string().min(1,'required'),
+  escerpt:z.string().min(1,'required'),
+  mainImage:z.string().min(1,'required'),
+  seoTitle:z.string().min(1,'required'),
+  seoDescription:z.string().min(1,'required'),
+  problem:z.string().min(1,'required'),
+  solution:z.string().min(1,'required'),
+  slug:z.string().min(1,'required'),
+  
+  firstExplainText:z.string().optional(),
+  firstExplainImage:z.string().optional(),
+
+  secondExplainText:z.string().optional(),
+  secondExplainImage:z.string().optional(),
+
+  thirdExplainText:z.string().optional(),
+  thirdExplainImage:z.string().optional(),
+
+  fourthExplainText:z.string().optional(),
+  fourthExplainImage:z.string().optional(),
+
+  startDate:z.date(),
+  endDate:z.date(),
+})
